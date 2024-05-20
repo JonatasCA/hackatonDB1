@@ -1,10 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import Home from './pages/home.jsx'
-import './styles/main.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import Home from './pages/home';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home />
-  </React.StrictMode>,
-)
+// Inicialize a raiz apenas uma vez e armazene a referência
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(<Home />);

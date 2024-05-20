@@ -1,0 +1,65 @@
+@import "../../styles/breakpoints.scss";
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@include breakpoint(small){
+    h1 {
+        background-color: blue;
+    } 
+}
+@include breakpoint(medium){
+    h1 {
+        background-color: gren;
+    } 
+}
+@include breakpoint(large){
+    h1 {
+        background-color: greenyellow;
+    } 
+}
+@include breakpoint(extra-large){
+    h1 {
+        background-color: orangered;
+    } 
+}
+@include breakpoint(extra-extra-large){
+    h1 {
+        background-color: purple;
+    } 
+}
+
+.wrapper-full {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 5px;
+}
+.wrapper-image {
+    width: 100%;
+    height: 100%;
+}
+
+.image {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.wrapper-text {
+    padding: 15px;
+    height: 140px;
+    width: 95%;
+    padding: 10px;
+}
+.wrapper-name{
+    display: flex;
+    font-size: 1.1em;
+    height: 65px;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper-price {
+    position: absolute;
+    display: flex;
+}

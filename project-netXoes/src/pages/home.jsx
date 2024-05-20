@@ -1,40 +1,37 @@
-import { useEffect } from 'react'
-import './home.scss'
-import api from '../services/api'
+import React, { useEffect, useState } from 'react';
+import Header from '../components/header/home.jsx'
+import Card from '../components/cards/home.jsx';
+import '../pages/home.scss'
+import api from '../services/api.js';
+
 function Home() {
-
+    const [produtos, setProdutos] = useState([]);
+  
     useEffect(() => {
-        async function loadData() {
-            const {data: {result}} = await api.get('produtos')
-
-            console.log(result)
+      async function loadData() {
+        try {
+          const response = await api.get('produtos');
+          const { result } = response.data;
+          console.log('API result:', result);
+          setProdutos(result);
+        } catch (error) {
+          console.error('Error fetching products:', error);
         }
-
-        loadData()
-    }, [])
-
-
-    return ( 
-        <header>
-            <nav className='navigation'>
-                <a  href="#" className='logo'>NetXoes</a>
-                <div className='search-box'>
-                <input type="text" className='search-txt' placeholder='O que você está buscando?' />
-                <a className='search-btn' href="#">
-                <i className='fas fa-search'></i>
-                </a>
-                </div>
-                <div className='btn-src-user'>
-                    <ul className='nav-list'>
-
-                        <li className='nav-item'><a href="#">Categorias</a></li>
-                        <li className='nav-item'><a href="#">Favoritos</a></li>
-                        <li className='nav-item'><a href="#">Entrar</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-    )
+      }
+  
+      loadData();
+    }, []);
+  
+    return (
+      <React.StrictMode>
+        <Header />
+        <div className='div-home'>
+        {produtos && produtos.map(produto => (
+          <Card produtoData={produto} key={produto.id} />
+        ))}
+        </div>
+      </React.StrictMode>
+    );
 }
 
 
