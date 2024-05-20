@@ -1,0 +1,20 @@
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+
+@mixin breakpoint($size) {
+    @if $size == small {
+      @media (max-width: $sm) { @content; }
+    } @else if $size == medium {
+      @media (min-width: $md) { @content; }
+    } @else if $size == large {
+      @media (min-width: $lg) { @content; }
+    } @else if $size == extra-large {
+      @media (min-width: $xl) { @content; }
+    } @else if $size == extra-extra-large {
+      @media (min-width: $xxl) { @content; }
+    }
+  }
