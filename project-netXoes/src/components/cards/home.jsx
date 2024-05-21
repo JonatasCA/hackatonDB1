@@ -8,7 +8,7 @@ function Card({produtoData}) {
         <div>
             <div className='wrapper-full'>
                 <div className='wrapper-image'>
-                    <img src={produtoData.image} alt="Imagem produto" className='image' />
+                    <img src={produtoData.image} alt="Imagem do produto selecionado" className='image' />
                 </div>
                 <div className='wrapper-text'>
                     <div className='wrapper-name'>
@@ -23,6 +23,7 @@ function Card({produtoData}) {
         
     )
 }
+
 
 
 export default Card

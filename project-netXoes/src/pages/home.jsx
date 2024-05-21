@@ -12,8 +12,10 @@ function Home() {
         try {
           const response = await api.get('produtos');
           const { result } = response.data;
-          console.log('API result:', result);
-          setProdutos(result);
+
+          const shuffledProdutos = result.sort(() => Math.random() - 0.5); // Embaralha o resultado da API
+
+          setProdutos(shuffledProdutos);
         } catch (error) {
           console.error('Error fetching products:', error);
         }
