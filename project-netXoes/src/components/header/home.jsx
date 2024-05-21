@@ -1,27 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import '../header/home.scss'
 import api from '../../services/api'
-function Header() {
-
-    const [produtos, setProdutos] = useState();
-
-    function inputChange() {
-        console.log(input.current.value);
-    }
-
-    useEffect(() => {
-        async function loadData() {
-            const {data: {result}} = await api.get('produtos')
-
-            setProdutos(result)
-            console.log(result)
-        }
-
-        loadData()
-    }, [])
+function Header({produtos, setProdutosFiltrados}) {
 
     const input = useRef();
-
+    
+    function inputChange() {
+        const novosProdutos = produtos.filter( produto => produto.name.toLowerCase().includes(input.current.value.toLowerCase()))
+        console.log(input.current.value);
+        setProdutosFiltrados(novosProdutos)
+    }
 
     return ( 
         <header>

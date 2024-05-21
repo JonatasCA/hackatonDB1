@@ -5,7 +5,8 @@ import '../pages/home.scss'
 import api from '../services/api.js';
 
 function Home() {
-    const [produtos, setProdutos] = useState([]);
+  const [produtos, setProdutos] = useState([]);
+  const [produtosFiltrados, setProdutosFiltrados] = useState([]);
   
     useEffect(() => {
       async function loadData() {
@@ -16,8 +17,10 @@ function Home() {
           const shuffledProdutos = result.sort(() => Math.random() - 0.5); // Embaralha o resultado da API
 
           setProdutos(shuffledProdutos);
+          setProdutosFiltrados(shuffledProdutos);
+
         } catch (error) {
-          console.error('Error fetching products:', error);
+          console.error('Erro ao buscar produtos:', error);
         }
       }
   
@@ -26,9 +29,9 @@ function Home() {
   
     return (
       <React.StrictMode>
-        <Header />
+        <Header produtos={produtos} setProdutosFiltrados={setProdutosFiltrados}/>
         <div className='div-home'>
-        {produtos && produtos.map(produto => (
+        {produtosFiltrados && produtosFiltrados.map(produto => (
           <Card produtoData={produto} key={produto.id} />
         ))}
         </div>
