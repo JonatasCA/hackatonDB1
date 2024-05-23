@@ -7,6 +7,7 @@ function Card({produtoData}) {
         // <p>{produtoData.name}, {produtoData.price}, {produtoData.id}, {produtoData.description}, {produtoData.price} </p>
         <div>
             <div className='wrapper-full'>
+                <a href="#">
                 <div className='wrapper-image'>
                     <img src={produtoData.image} alt="Imagem do produto selecionado" className='image' />
                 </div>
@@ -18,6 +19,7 @@ function Card({produtoData}) {
                         <p>A partir de <br /><b>R$ {produtoData.price}</b></p>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
         

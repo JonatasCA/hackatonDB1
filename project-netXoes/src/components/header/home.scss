@@ -34,11 +34,12 @@
     height: 4.6875rem;
     width: 100vw;
     background-color: #5a2d82;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 3px 5px 0px, rgba(60, 64, 67, 0.15) 0px 3px 7px 5px;
 }
 
 .logo {
     color: #1e1e1e;
-    font-size: 2em;
+    font-size: 2rem;
     font-family: "Raleway", sans-serif;
     font-weight: 600;
 }
@@ -55,20 +56,23 @@
     justify-content: center;
     align-items: center;
     background-color: white;
-    border-top-right-radius: 7px;
-    border-bottom-right-radius: 7px;
+    border-radius: 0px 7px 7px 0px;
     color:#1e1e1e;
 }
 
 .search-txt {
-    height: 3em;
+    height: 2.6rem;
     border: none;
     outline: none;
     background-color: white;
-    width: 240px;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
+    width: 15rem;
+    border-radius: 7px 0px 0px 7px;
     text-align: center;
+    font-size: 1rem;
+}
+
+.btn-src-user {
+    margin: 0px;
 }
 
 .navigation .nav-list {
@@ -85,7 +89,7 @@
     position: relative;
     font-size: 1.4em;
     font-weight: 500;
-    margin: 0 30px;
+    margin: 0 0.7em;
 }
 
 .navigation .nav-item a::after {

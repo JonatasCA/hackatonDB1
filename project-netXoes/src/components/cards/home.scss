@@ -27,6 +27,11 @@
     } 
 }
 
+a {
+    text-decoration: none;
+    color: #1e1e1e;
+}
+
 .wrapper-full {
     display: flex;
     flex-direction: column;
@@ -55,8 +60,9 @@
     display: flex;
     font-size: 1.1em;
     height: 65px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    text-decoration: none;
 }
 
 .wrapper-price {
