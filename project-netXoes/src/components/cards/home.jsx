@@ -9,7 +9,7 @@ function Card({produtoData}) {
             <div className='wrapper-full'>
                 <a href="#">
                 <div className='wrapper-image'>
-                    <img src={produtoData.image} alt="Imagem do produto selecionado" className='image' />
+                    <img src={`./products/${produtoData.image}`}  alt="Imagem do produto selecionado" className='image' />
                 </div>
                 <div className='wrapper-text'>
                     <div className='wrapper-name'>

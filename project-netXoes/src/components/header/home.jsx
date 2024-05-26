@@ -24,7 +24,7 @@ function Header({produtos, setProdutosFiltrados}) {
                 <div className='btn-src-user'>
                     <ul className='nav-list'>
                         <li className='nav-item'><a href="#">Categorias</a></li>
-                        <li className='nav-item'><a href="#">Favoritos</a></li>
+                        <li className='nav-item'><a href="/Favorites">Favoritos</a></li>
                         <li className='nav-item'><a href="#">Entrar</a></li>
                     </ul>
                 </div>
