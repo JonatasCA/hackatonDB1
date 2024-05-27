@@ -1,0 +1,37 @@
+@import "../styles/breakpoints.scss";
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@include breakpoint(small){
+    h1 {
+        background-color: blue;
+    } 
+}
+@include breakpoint(medium){
+    h1 {
+        background-color: gren;
+    } 
+}
+@include breakpoint(large){
+    h1 {
+        background-color: greenyellow;
+    } 
+}
+@include breakpoint(extra-large){
+    h1 {
+        background-color: orangered;
+    } 
+}
+@include breakpoint(extra-extra-large){
+    h1 {
+        background-color: purple;
+    } 
+}
+
+
+.div-home {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(5,240px);
+    gap: 16px;
+    justify-content: center;
+  }

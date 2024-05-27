@@ -1,6 +1,6 @@
-import { useRef } from 'react'
-import '../header/home.scss'
-
+import { useEffect, useRef, useState } from 'react'
+import '../header/favorites.scss'
+import api from '../../services/api'
 function Header({produtos, setProdutosFiltrados}) {
 
     const input = useRef();
@@ -26,6 +26,7 @@ function Header({produtos, setProdutosFiltrados}) {
                         <li className='nav-item'><a href="#">Categorias</a></li>
                         <li className='nav-item'><a href="/favorites">Favoritos</a></li>
                         <li className='nav-item'><a href="#">Entrar</a></li>
+                        
                     </ul>
                 </div>
             </nav>

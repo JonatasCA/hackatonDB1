@@ -42,6 +42,11 @@ a {
 .wrapper-image {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+
 }
 
 .image {
@@ -51,10 +56,9 @@ a {
 }
 
 .wrapper-text {
-    padding: 15px;
     height: 140px;
-    width: 95%;
-    padding: 10px;
+    width: 220px;
+    padding: 10px 10px 10px 10px;
 }
 .wrapper-name{
     display: flex;
@@ -67,5 +71,58 @@ a {
 
 .wrapper-price {
     position: absolute;
+    width: 220px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button-favorite{
+    width: 0.1rem;
+    height: 0.1rem;
+    background-color: #00000030;
+    border-radius: 0.7rem;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.button-favorite:hover{
+    background-color: #00000070;
+}
+
+.details {
+    background-color: #5a2d82;
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    flex: 0 0 auto;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.3rem;
+    padding: .5rem 0.75rem;
+    text-align: center;
+    text-decoration: none #5f2294 solid;
+    text-decoration-thickness: auto;
+    transition-duration: .2s;
+    transition-property: background-color,border-color,color,fill,stroke;
+    transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: auto;
+}
+
+.details:hover {
+    background-color: #9165b6;
+}
+
+.details:focus {
+    box-shadow: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
 }
