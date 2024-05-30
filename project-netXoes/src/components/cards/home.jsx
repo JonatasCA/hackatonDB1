@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import FavoriteButton from './favoriteButton'
 import './home.scss'
 
@@ -20,11 +21,11 @@ function Card({produtoData}) {
                         </div>
                         <div className='wrapper-price'>
                             <p>A partir de <br /><b>R$ {produtoData.price}</b></p>
-                <a href='#'>
+                <Link to='#'>
                     <button className='details'>
                         Detalhes
                     </button>
-                </a>
+                </Link>
                         </div>
                     </div>
             </div>
