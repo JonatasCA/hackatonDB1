@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../components/header/header.jsx'
-import Card from '../components/cards/home.jsx';
+import Card from '../components/cards/cards.jsx';
 import '../pages/home.scss'
 import api from '../services/api.js';
 

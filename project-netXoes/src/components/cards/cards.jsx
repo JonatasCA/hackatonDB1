@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import FavoriteButton from './favoriteButton'
-import './home.scss'
+import './cards.scss'
 
 function Card({produtoData}) {
 
@@ -21,7 +21,7 @@ function Card({produtoData}) {
                         </div>
                         <div className='wrapper-price'>
                             <p>A partir de <br /><b>R$ {produtoData.price}</b></p>
-                <Link to='#'>
+                <Link to={`/product/${produtoData.id}`}>
                     <button className='details'>
                         Detalhes
                     </button>
