@@ -5,6 +5,7 @@ import './cards.scss'
 function Card({produtoData}) {
 
 
+
     return ( 
         // <p>{produtoData.name}, {produtoData.price}, {produtoData.id}, {produtoData.description}, {produtoData.price} </p>
         <div>
@@ -12,7 +13,7 @@ function Card({produtoData}) {
                     <div className='wrapper-image'>
                         <img src={`./products/${produtoData.image}`}  alt="Imagem do produto selecionado" className='image' />
                         <div className='button-favorite'>
-                        <FavoriteButton productId={produtoData.id} />
+                        <FavoriteButton productId={produtoData.id}/>
                         </div>
                     </div>
                     <div className='wrapper-text'>

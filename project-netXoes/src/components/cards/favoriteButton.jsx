@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './favoriteButton.scss';
+import { useFavoriteContext } from '../../contexts/favorites';
 
-function FavoriteButton({ productId }) {
+function FavoriteButton({ productId, produtoData }) {
     const [isFavorite, setIsFavorite] = useState(false);
+    const { favorite, addFavorite} = useFavoriteContext();
 
     useEffect(() => {
         const favoriteProducts = JSON.parse(localStorage.getItem('favoriteProducts')) || [];
@@ -22,10 +24,11 @@ function FavoriteButton({ productId }) {
 
         localStorage.setItem('favoriteProducts', JSON.stringify(favoriteProducts));
         setIsFavorite(!isFavorite);
+        addFavorite({ id: productId, ...produtoData});
     };
 
     return (
-        <button className={`favorite-button ${isFavorite ? 'favorite' : ''}`} onClick={handleFavoriteClick}>
+        <button className={`favorite-button ${isFavorite ? 'favorite' : ''}`} onClick={handleFavoriteClick} >
             {isFavorite ? '❤' : '♡'}
         </button>
     );
