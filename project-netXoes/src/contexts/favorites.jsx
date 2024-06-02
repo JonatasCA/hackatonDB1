@@ -1,38 +1,46 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import api from '../services/api.js';
 
-export const FavoritesContext = createContext()
-FavoritesContext.displayName = "MyFavorites"
+export const FavoritesContext = createContext();
+FavoritesContext.displayName = "MyFavorites";
 
-export default function FavoritesProvider({ children }){
-    const [ favorite, setFavorite ] = useState([])
+export default function FavoritesProvider({ children }) {
+    const [favorite, setFavorite] = useState([]);
+
+    useEffect(() => {
+        const favoriteIds = JSON.parse(localStorage.getItem('favoriteProducts')) || [];
+        if (favoriteIds.length > 0) {
+            api.get('/produtos', {
+                params: { ids: favoriteIds.join(',') }
+            }).then(response => {
+                const { result } = response.data;
+                setFavorite(result);
+            }).catch(error => {
+                console.error('Erro ao buscar produtos favoritos:', error);
+            });
+        }
+    }, []);
+
+    function addFavorite(newFavorite) {
+        const isFavorite = favorite.some(item => item.id === newFavorite.id);
+
+        let newList;
+        if (isFavorite) {
+            newList = favorite.filter(item => item.id !== newFavorite.id);
+        } else {
+            newList = [...favorite, newFavorite];
+        }
+        setFavorite(newList);
+        localStorage.setItem('favoriteProducts', JSON.stringify(newList.map(item => item.id)));
+    }
 
     return (
-        <FavoritesContext.Provider value={{ favorite, setFavorite}}>
-            { children }
+        <FavoritesContext.Provider value={{ favorite, addFavorite }}>
+            {children}
         </FavoritesContext.Provider>
     );
 }
 
 export function useFavoriteContext() {
-    const { favorite, setFavorite } = useContext(FavoritesContext)
-
-    function addFavorite(newFavorite) {
-        const repeatedFavorite = favorite.some((item) => item.id === newFavorite.id)
-
-        let newList  = [...favorite]
-
-        if(!repeatedFavorite) {
-            newList.push(newFavorite)
-            return setFavorite(newList)
-        }
-
-        newList = favorite.filter((fav) => fav.id !== newFavorite.id)
-
-        return setFavorite(newList)
-    }
-
-    return {
-        favorite,
-        addFavorite
-    }
+    return useContext(FavoritesContext);
 }

@@ -70,11 +70,11 @@ a {
 }
 
 .wrapper-price {
-    position: absolute;
     width: 220px;
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .button-favorite{

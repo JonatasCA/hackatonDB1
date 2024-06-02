@@ -31,7 +31,7 @@
 .div-home {
     padding: 10px;
     display: grid;
-    grid-template-columns: repeat(5,240px);
+    grid-template-columns: repeat(auto-fit, (240px));
     gap: 16px;
     justify-content: center;
   }

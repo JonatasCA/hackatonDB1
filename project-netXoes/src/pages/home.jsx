@@ -8,24 +8,26 @@ function Home() {
   const [produtos, setProdutos] = useState([]);
   const [produtosFiltrados, setProdutosFiltrados] = useState([]);
   
-    useEffect(() => {
-      async function loadData() {
-        try {
-          const response = await api.get('produtos');
-          const { result } = response.data;
-
-          const shuffledProdutos = result.sort(() => Math.random() - 0.5); // Embaralha o resultado da API
-
-          setProdutos(shuffledProdutos);
-          setProdutosFiltrados(shuffledProdutos);
-
-        } catch (error) {
-          console.error('Erro ao buscar produtos:', error);
-        }
-      }
+  useEffect(() => {
+    async function loadData() {
+      try {
+        const response = await api.get('produtos');
+        const { result } = response.data;
   
-      loadData();
-    }, []);
+        console.log(result); // Verifique os dados aqui
+  
+        const shuffledProdutos = result.sort(() => Math.random() - 0.5); // Embaralha o resultado da API
+  
+        setProdutos(shuffledProdutos);
+        setProdutosFiltrados(shuffledProdutos);
+  
+      } catch (error) {
+        console.error('Erro ao buscar produtos:', error);
+      }
+    }
+  
+    loadData();
+  }, []);
   
     return (
       <React.StrictMode>
