@@ -14,9 +14,7 @@ function Home() {
         const response = await api.get('produtos');
         const { result } = response.data;
   
-        console.log(result); // Verifique os dados aqui
-  
-        const shuffledProdutos = result.sort(() => Math.random() - 0.5); // Embaralha o resultado da API
+        const shuffledProdutos = result.sort(() => Math.random() - 0.5); 
   
         setProdutos(shuffledProdutos);
         setProdutosFiltrados(shuffledProdutos);

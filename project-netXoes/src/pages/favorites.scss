@@ -2,27 +2,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 @include breakpoint(small){
-    h1 {
+    h4 {
         background-color: blue;
     } 
 }
 @include breakpoint(medium){
-    h1 {
+    h4 {
         background-color: gren;
     } 
 }
 @include breakpoint(large){
-    h1 {
+    h4 {
         background-color: greenyellow;
     } 
 }
 @include breakpoint(extra-large){
-    h1 {
+    h4 {
         background-color: orangered;
     } 
 }
 @include breakpoint(extra-extra-large){
-    h1 {
+    h4 {
         background-color: purple;
     } 
 }

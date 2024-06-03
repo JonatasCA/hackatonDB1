@@ -1,26 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Route, Routes, Link, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './styles/main.scss';
 import Home from './pages/home';
+import Categories from './pages/categoriesPage';
 import Favorites from './pages/favorites';
-import Details from './pages/details';
-import Categories from './pages/categories';
+import Login from './pages/loginPage';
 import FavoritesProvider from './contexts/favorites';
-// import Contact from './pages/contact';
+import ProductDetails from './pages/productDetails';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-    <BrowserRouter>
-        <FavoritesProvider>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/favorites" element={<Favorites />} />
-                <Route path="/details" element={<Details />} />
-                <Route path="/categories" element={<Categories />} />
-                {/* <Route path="/contact" element={<Contact />} /> */}
-            </Routes>
-        </FavoritesProvider>
-    </BrowserRouter>
+  <BrowserRouter>
+    <FavoritesProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+      </Routes>
+    </FavoritesProvider>
+  </BrowserRouter>
 );

@@ -17,9 +17,6 @@ function Favorites() {
         const response = await api.get('produtos');
         const { result } = response.data;
   
-        console.log(result); // Verifique os dados aqui
-  
-  
         setProdutos(result);
         setProdutosFiltrados(result);
   

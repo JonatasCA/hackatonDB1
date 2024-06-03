@@ -1,3 +1,4 @@
+const { json } = require('body-parser');
 const productService = require('../services/productService');
 
 module.exports = {
@@ -15,6 +16,24 @@ module.exports = {
                     price: products[i].price,
                     image: products[i].image
                 });
+            }
+        } catch (error) {
+            json.error = error.message;
+        }
+
+        res.json(json);
+    },
+
+    buscarUm: async(req, res) => {
+        let json = { error: '', result:{} };
+
+        let id = req.params.id;
+        try {
+            let product = await productService.buscarUm(id);
+            if (product) {
+                json.result = product;
+            } else {
+                json.error = 'Produto não encontrado';
             }
         } catch (error) {
             json.error = error.message;

@@ -3,11 +3,12 @@ import FavoriteButton from './favoriteButton';
 import './cards.scss';
 
 function Card({ produtoData }) {
+        // <p>{produtoData.name}, {produtoData.price}, {produtoData.id}, {produtoData.description}, {produtoData.price} </p>
     return (
         <div>
             <div className='wrapper-full'>
                 <div className='wrapper-image'>
-                    <img src={`./products/${produtoData.image}`} alt="Imagem do produto selecionado" className='image' />
+                    <img src={`./products/${produtoData.image}`} alt={produtoData.name} className='image' />
                     <div className='button-favorite'>
                         <FavoriteButton productId={produtoData.id} produtoData={produtoData} />
                     </div>
